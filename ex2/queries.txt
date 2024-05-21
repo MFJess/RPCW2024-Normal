@@ -1,0 +1,83 @@
+# Exercício 11
+
+- Quantas doenças estão presentes na ontologia?
+
+PREFIX tp: <http://www.example.org/disease-ontology#>
+SELECT (COUNT(?disease) AS ?numberOfDiseases)
+WHERE {
+  ?disease a tp:Disease .
+}
+
+---------------------------------------------------------
+
+- Que doenças estão associadas ao sintoma "yellowish_skin"?
+
+PREFIX tp: <http://www.example.org/disease-ontology#>
+SELECT ?disease
+WHERE {
+  ?disease a tp:Disease ;
+          tp:hasSymptom tp:yellowish_skin .
+}
+
+---------------------------------------------------------
+
+
+- Que doenças estão associadas ao tratamento "exercise"?
+
+PREFIX tp: <http://www.example.org/disease-ontology#>
+SELECT ?disease
+WHERE {
+  ?disease a tp:Disease ;
+           tp:hasTreatment tp:Exercise .
+}
+
+---------------------------------------------------------
+
+- Produz uma lista ordenada alfabeticamente com o nome dos doentes.
+
+PREFIX tp: <http://www.example.org/disease-ontology#>
+SELECT ?name
+WHERE {
+  ?patient a tp:Patient ;
+           tp:name ?name .
+}
+ORDER BY ?name
+
+---------------------------------------------------------
+
+# Exercício 13
+
+PREFIX tp: <http://www.example.org/disease-ontology#>
+SELECT ?disease (COUNT(?patient) AS ?numberOfPatients)
+WHERE {
+  ?patient a tp:Patient ;
+           tp:hasDisease ?disease .
+}
+GROUP BY ?disease
+
+
+---------------------------------------------------------
+
+# Exercício 14
+
+PREFIX tp: <http://www.example.org/disease-ontology#>
+SELECT ?symptom (COUNT(?disease) AS ?numberOfDiseases)
+WHERE {
+  ?disease a tp:Disease ;
+           tp:hasSymptom ?symptom .
+}
+GROUP BY ?symptom
+
+
+---------------------------------------------------------
+
+
+# Exercício 15
+
+PREFIX tp: <http://www.example.org/disease-ontology#>
+SELECT ?treatment (COUNT(?disease) AS ?numberOfDiseases)
+WHERE {
+  ?disease a tp:Disease ;
+           tp:hasTreatment ?treatment .
+}
+GROUP BY ?treatment

@@ -1,0 +1,42 @@
+As Queries
+
+. Quantas classes estão definidas na Ontologia?
+
+SELECT (COUNT(DISTINCT ?class) AS ?numClasses)
+WHERE {
+  ?class a owl:Class .
+}
+
+. Quantas Object Properties estão definidas na Ontologia?
+
+
+. Quantos indivíduos existem na tua ontologia?
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT (COUNT(?individual) AS ?count)
+WHERE {
+  ?individual a owl:NamedIndividual .
+}
+
+. Quem planta tomates?
+
+PREFIX tp: <http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33/>
+
+SELECT ?agricultores
+WHERE {
+  ?tomate tp:produtoNome "Tomate" .
+  ?agricultores tp:cultiva ?tomate .
+}
+
+. Quem contrata trabalhadores temporários?
+
+PREFIX tp: <http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX : <http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33/>
+
+SELECT DISTINCT ?contratam
+WHERE {
+  ?agricultores rdf:type :Agricultor .
+  ?trabalhadores rdf:type :TrabalhadorTemporario .
+  ?contratam tp:contrata ?trabalhadores .
+}

@@ -1,0 +1,295 @@
+@prefix : <http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33/> .
+
+<http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#contrata
+:contrata rdf:type owl:ObjectProperty ;
+          owl:inverseOf :contratadoPor ;
+          rdfs:domain :Agricultor ;
+          rdfs:range :TrabalhadorTemporario .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#contratadoPor
+:contratadoPor rdf:type owl:ObjectProperty .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#cria
+:cria rdf:type owl:ObjectProperty ;
+      owl:inverseOf :criadoPor ;
+      rdfs:domain :Agricultor ;
+      rdfs:range :Animal .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#criadoPor
+:criadoPor rdf:type owl:ObjectProperty .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#cultiva
+:cultiva rdf:type owl:ObjectProperty ;
+         owl:inverseOf :cultivadoPor ;
+         rdfs:domain :Agricultor ;
+         rdfs:range :Produto .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#cultivadoPor
+:cultivadoPor rdf:type owl:ObjectProperty .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#vende
+:vende rdf:type owl:ObjectProperty ;
+       owl:inverseOf :vendidoPor ;
+       rdfs:domain :Agricultor ;
+       rdfs:range :Produto .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#vendidoPor
+:vendidoPor rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#agricultorId
+:agricultorId rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Agricultor ;
+              rdfs:range xsd:string .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#agricultorNome
+:agricultorNome rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Agricultor ;
+                rdfs:range xsd:string .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#animalId
+:animalId rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Animal ;
+          rdfs:range xsd:string .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#animalNome
+:animalNome rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Animal ;
+            rdfs:range xsd:string .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#produtoId
+:produtoId rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Produto ;
+           rdfs:range xsd:string .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#produtoNome
+:produtoNome rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Produto ;
+             rdfs:range xsd:string .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#produtoPreco
+:produtoPreco rdf:type owl:DatatypeProperty ;
+              rdfs:range xsd:float .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#trabalhadorId
+:trabalhadorId rdf:type owl:DatatypeProperty ;
+               rdfs:domain :TrabalhadorTemporario ;
+               rdfs:range xsd:string .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#trabalhadorNome
+:trabalhadorNome rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :TrabalhadorTemporario ;
+                 rdfs:range xsd:string .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#trabalhadorSalario
+:trabalhadorSalario rdf:type owl:DatatypeProperty ;
+                    rdfs:range xsd:float .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#Agricultor
+:Agricultor rdf:type owl:Class .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#Animal
+:Animal rdf:type owl:Class .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#Produto
+:Produto rdf:type owl:Class .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#TrabalhadorTemporario
+:TrabalhadorTemporario rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#Alface
+:Alface rdf:type owl:NamedIndividual ,
+                 :Produto ;
+        :produtoId "p1" ;
+        :produtoNome "Alface" ;
+        :produtoPreco "1.54"^^xsd:float .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#Banana
+:Banana rdf:type owl:NamedIndividual ,
+                 :Produto ;
+        :produtoId "p2" ;
+        :produtoNome "Banana" ;
+        :produtoPreco "0.9"^^xsd:float .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#Cenoura
+:Cenoura rdf:type owl:NamedIndividual ,
+                  :Produto ;
+         :produtoId "p3" ;
+         :produtoNome "Cenoura" ;
+         :produtoPreco "1.02"^^xsd:float .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#Claudia
+:Claudia rdf:type owl:NamedIndividual ,
+                  :TrabalhadorTemporario ;
+         :trabalhadorId "t1" ;
+         :trabalhadorNome "Claudia" ;
+         :trabalhadorSalario "10.0"^^xsd:float .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#Galinha
+:Galinha rdf:type owl:NamedIndividual ,
+                  :Animal ;
+         :animalId "an1" ;
+         :animalNome "Galinha" .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#GeleiaBanana
+:GeleiaBanana rdf:type owl:NamedIndividual ,
+                       :Produto ;
+              :produtoId "p7" ;
+              :produtoNome "GeleiaBanana" ;
+              :produtoPreco "2.59"^^xsd:float .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#GeleiaLaranja
+:GeleiaLaranja rdf:type owl:NamedIndividual ;
+               :produtoId "p8" ;
+               :produtoNome "GeleiaLaranja" ;
+               :produtoPreco "3.5"^^xsd:float .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#GeleiaMaçã
+:GeleiaMaçã rdf:type owl:NamedIndividual ;
+            :produtoId "p9" ;
+            :produtoNome "GeleiaMaçã" ;
+            :produtoPreco "5.25"^^xsd:float .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#Laranja
+:Laranja rdf:type owl:NamedIndividual ,
+                  :Produto ;
+         :produtoId "p4" ;
+         :produtoNome "Laranja" ;
+         :produtoPreco "1.26"^^xsd:float .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#Luís
+:Luís rdf:type owl:NamedIndividual ,
+               :TrabalhadorTemporario ;
+      :trabalhadorId "t3" ;
+      :trabalhadorNome "Luís" ;
+      :trabalhadorSalario "10.0"^^xsd:float .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#Maçã
+:Maçã rdf:type owl:NamedIndividual ,
+               :Produto ;
+      :produtoId "p5" ;
+      :produtoNome "Maçã" ;
+      :produtoPreco "1.44"^^xsd:float .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#Porco
+:Porco rdf:type owl:NamedIndividual ,
+                :Animal ;
+       :animalId "an2" ;
+       :animalNome "Porco" .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#SenhorCarlos
+:SenhorCarlos rdf:type owl:NamedIndividual ,
+                       :Agricultor ;
+              :cultiva :Alface ,
+                       :Cenoura ,
+                       :Tomate ;
+              :vende :Alface ,
+                     :Cenoura ,
+                     :Tomate ;
+              :agricultorId "a2" ;
+              :agricultorNome "SenhorCarlos" .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#SenhorJoão
+:SenhorJoão rdf:type owl:NamedIndividual ,
+                     :Agricultor ;
+            :contrata :Claudia ,
+                      :Luís ,
+                      :Vitor ;
+            :cria :Galinha ,
+                  :Porco ,
+                  :Vaca ;
+            :cultiva :Banana ,
+                     :Laranja ,
+                     :Maçã ;
+            :vende :Banana ,
+                   :GeleiaBanana ,
+                   :GeleiaLaranja ,
+                   :GeleiaMaçã ,
+                   :Laranja ,
+                   :Maçã ;
+            :agricultorId "a1" ;
+            :agricultorNome "SenhorJoão" .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#Tomate
+:Tomate rdf:type owl:NamedIndividual ,
+                 :Produto ;
+        :produtoId "p6" ;
+        :produtoNome "Tomate" ;
+        :produtoPreco "1.62"^^xsd:float .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#Vaca
+:Vaca rdf:type owl:NamedIndividual ,
+               :Animal ;
+      :animalId "an3" ;
+      :animalNome "Vaca" .
+
+
+###  http://rpcw.di.uminho.pt/2024/4/untitled-ontology-33#Vitor
+:Vitor rdf:type owl:NamedIndividual ,
+                :TrabalhadorTemporario ;
+       :trabalhadorId "t2" ;
+       :trabalhadorNome "Vitor" ;
+       :trabalhadorSalario "10.0"^^xsd:float .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
